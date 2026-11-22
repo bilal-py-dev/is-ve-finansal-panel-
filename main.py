@@ -37,7 +37,7 @@ async def yapay_zeka_analiz(request: Request):
     prompt = f"Profesyonel finans danışmanı olarak en fazla 4 maddelik kısa Türkçe özet ve tavsiye ver:\nGelir: {gelir} TL, Gider: {gider} TL, Net: {net} TL\nİşler:\n{isler}\nHareketler:\n{hareketler}"
     try:
         client = genai.Client(api_key=GEMINI_API_KEY)
-        res = client.models.generate_content(model="gemini-3.8-flash", contents=prompt)
+        res = client.models.generate_content(model="gemini-3.5-flash-lite", contents=prompt)
         analiz = res.text
     except Exception as e:
         analiz = f"API Hatası (API anahtarını kontrol et): {str(e)}"
